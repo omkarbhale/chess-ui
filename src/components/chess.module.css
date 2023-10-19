@@ -1,0 +1,59 @@
+.square {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+.board_row {
+    display: flex;
+}
+.square.dark {
+    background-color: rgb(4, 113, 59);
+}
+.square.light {
+    background-color: rgb(49, 167, 78);
+}
+.square.highlight::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(190, 241, 37, 0.4);
+}
+
+.piece {
+    --offset-x: 0;
+    --offset-y: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    background-image: url('/Chess_Pieces_Sprite.svg');
+    background-size: calc(270 * 100% / 45);
+    background-position: calc(-100% * var(--offset-x)) calc(-100% * var(--offset-y));
+}
+.piece.white {
+    --offset-y: 0;
+}
+.piece.black {
+    --offset-y: 1;
+}
+.piece.king {
+    --offset-x: 0;
+}
+.piece.queen {
+    --offset-x: 1;
+}
+.piece.bishop {
+    --offset-x: 2;
+}
+.piece.knight {
+    --offset-x: 3;
+}
+.piece.rook {
+    --offset-x: 4;
+}
+.piece.pawn {
+    --offset-x: 5;
+}
